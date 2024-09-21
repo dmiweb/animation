@@ -1,0 +1,30 @@
+.collapse-btn {
+  margin: 20px 0 0 20px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #008cff;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.collapse-btn:focus {
+  outline: 3px solid rgba(0, 140, 255, 0.4)
+}
+
+.widget-collapsible {
+  position: absolute;
+  max-width: 400px;
+  margin-top: 15px;
+  padding: 10px;
+  border: 2px solid #ebe9e9;
+  border-radius: 5px;
+  background-color: #fdfafa;
+  transform-origin: 100% 0;
+  transform: scaleY(0);
+  transition: transform 0.5s;
+}
+
+.widget-collapsible_animation {
+  transform: scaleY(1);
+}
