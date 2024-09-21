@@ -1,3 +1,1 @@
-export default class Liker {
-
-}
+export default class Liker {}

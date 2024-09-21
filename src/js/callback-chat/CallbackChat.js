@@ -1,19 +1,19 @@
-import "./callback-chat.css"
+import "./callback-chat.css";
 
 export default class CallbackChat {
   constructor(parentEl) {
     this.parentEl = parentEl;
-    this.openChatBtn = document.querySelector('.callback-chat__open-btn');
+    this.openChatBtn = document.querySelector(".callback-chat__open-btn");
 
     this.render = this.render.bind(this);
     this.remove = this.remove.bind(this);
     this.hoverOpenChatBtn = this.hoverOpenChatBtn.bind(this);
     this.outOpenChatBtn = this.outOpenChatBtn.bind(this);
 
-    this.openChatBtn.addEventListener('click', this.render);
-    this.openChatBtn.addEventListener('mouseover', this.hoverOpenChatBtn);
+    this.openChatBtn.addEventListener("click", this.render);
+    this.openChatBtn.addEventListener("mouseover", this.hoverOpenChatBtn);
 
-    this.openChatBtn.addEventListener('mouseout', this.outOpenChatBtn);
+    this.openChatBtn.addEventListener("mouseout", this.outOpenChatBtn);
   }
 
   static get markup() {
@@ -28,35 +28,37 @@ export default class CallbackChat {
   }
 
   hoverOpenChatBtn() {
-    this.openChatBtn.classList.add('callback-chat__open-btn_hover');
+    this.openChatBtn.classList.add("callback-chat__open-btn_hover");
   }
 
   outOpenChatBtn() {
-    this.openChatBtn.classList.remove('callback-chat__open-btn_hover');
+    this.openChatBtn.classList.remove("callback-chat__open-btn_hover");
   }
 
   render() {
-    this.parentEl.insertAdjacentHTML('beforeEnd', CallbackChat.markup);
+    this.parentEl.insertAdjacentHTML("beforeEnd", CallbackChat.markup);
 
-    const chat = document.querySelector('.callback-chat');
-    const closeChatBtn = document.querySelector('.callback-chat__close-btn');
+    const chat = document.querySelector(".callback-chat");
+    const closeChatBtn = document.querySelector(".callback-chat__close-btn");
 
-    this.openChatBtn.classList.add('callback-chat__open-btn_hidden');
+    this.openChatBtn.classList.add("callback-chat__open-btn_hidden");
 
     setTimeout(() => {
-      chat.classList.add('callback-chat_show');
+      chat.classList.add("callback-chat_show");
     }, 0);
 
-    closeChatBtn.addEventListener('click', this.remove);
+    closeChatBtn.addEventListener("click", this.remove);
   }
 
   remove({ currentTarget }) {
-    currentTarget.closest('.callback-chat').classList.remove('callback-chat_show');
+    currentTarget
+      .closest(".callback-chat")
+      .classList.remove("callback-chat_show");
 
     setTimeout(() => {
-      currentTarget.closest('.callback-chat').remove();
+      currentTarget.closest(".callback-chat").remove();
     }, 100);
 
-    this.openChatBtn.classList.remove('callback-chat__open-btn_hidden');
+    this.openChatBtn.classList.remove("callback-chat__open-btn_hidden");
   }
 }
